@@ -1,0 +1,26 @@
+<div>
+  <h1>Warehouse Inventory</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Item Id</th>
+        <th>Item Name</th>
+        <th>Shelf</th>
+        <th>Ailse</th>
+        <th>Quantity</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of Inventory|async">
+          <td>{{ item.itemId }}</td>
+          <td>{{ item.name }}</td>
+          <td>{{ item.shelf }}</td>
+          <td>{{ item.aisle }}</td>
+          <td>{{ item.quantity }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div>
+    <h3>Hello There {{ Inventory[0].name }}</h3>
+  </div>
+</div>
