@@ -26,17 +26,35 @@ namespace AngularCSharp.Data
         {
             return _context.Inventory.FromSql<Inventory>("SELECT * FROM Inventory;");
         }
-        public Inventory GetItemById(long id)
+        public Inventory GetItemById(long[] id)
         {
-            return new Inventory();
+            var item = _context.Inventory.Find(id);
+            return item;
+        }
+        public IEnumerable<Inventory> GetItemByName(string name)
+        {
+            // var inventory = from i in _context.Inventory
+            //                 where i.name.Contains(name)
+            //                 orderby i.name
+            //                 select i;
+            // return inventory;
+            var query = from i in _context.Inventory
+                        where i.name.Contains(name) || string.IsNullOrEmpty(name)
+                        orderby i.name
+                        select i;
+            return query;
         }
         public Inventory UpdateItem(Inventory item)
         {
+            var entity = _context.Inventory.Attach(item);
+            entity.State = EntityState.Modified;
             return item;
         }
-        public Inventory DeleteItem(long id)
+        public Inventory DeleteItem(long[] id)
         {
-            return new Inventory();
+            var item = this.GetItemById(id);
+            _context.Remove(item);
+            return item;
         }
         public int Commit()
         {

@@ -8,9 +8,10 @@ namespace AngularCSharp.Data
     {
         Inventory AddItem(Inventory item);
         IEnumerable<Inventory> GetInventory();
-        Inventory GetItemById(long id);
+        Inventory GetItemById(long[] id);
+        IEnumerable<Inventory> GetItemByName(string name);
         Inventory UpdateItem(Inventory item);
-        Inventory DeleteItem(long id);
+        Inventory DeleteItem(long[] id);
         int Commit();
     }
 }
