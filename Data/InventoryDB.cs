@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using AngularCSharp;
 using Microsoft.EntityFrameworkCore;
 
@@ -39,8 +40,8 @@ namespace AngularCSharp.Data
             //                 select i;
             // return inventory;
             var query = from i in _context.Inventory
-                        where i.name.Contains(name) || string.IsNullOrEmpty(name)
-                        orderby i.name
+                        where i.Name.Contains(name) || string.IsNullOrEmpty(name)
+                        orderby i.Name
                         select i;
             return query;
         }

@@ -24,5 +24,28 @@ namespace AngularCSharp.Controllers
         {
             return _inventory.GetInventory();
         }
+
+        [HttpGet("[action]")]
+        public IEnumerable<Inventory> ByName(string name)
+        {
+            return _inventory.GetItemByName(name);
+        }
+        [HttpGet("[action]")]
+        public Inventory ById(long[] id)
+        {
+            return _inventory.GetItemById(id);
+        }
+        [HttpPost("[action]")]
+        public int Update(Inventory item)
+        {
+            _inventory.UpdateItem(item);
+            return _inventory.Commit();
+        }
+        [HttpPost("[action]")]
+        public int Delete(long[] id)
+        {
+            _inventory.DeleteItem(id);
+            return _inventory.Commit();
+        }
     }
 }
