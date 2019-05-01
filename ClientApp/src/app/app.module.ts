@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { FetchInventoryComponent } from './fetch-inventory/fetch-inventory.component';
+import { AddItemComponent } from './add-item/add-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
     HomeComponent,
-    FetchInventoryComponent
+    FetchInventoryComponent,
+    AddItemComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -23,6 +25,7 @@ import { FetchInventoryComponent } from './fetch-inventory/fetch-inventory.compo
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'fetch-inventory', component: FetchInventoryComponent },
+      { path: 'add-item', component: AddItemComponent },
     ])
   ],
   providers: [],
