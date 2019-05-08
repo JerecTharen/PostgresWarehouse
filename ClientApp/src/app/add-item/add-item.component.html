@@ -1,3 +1,14 @@
-<p>
-  add-item works!
-</p>
+<div>
+  <h1>Add An Item to the Warehouse</h1>
+  <div id="addItemForm">
+    <label for="name">Item Name: </label>
+    <input [(ngModel)]="name" />
+    <label for="ailse">Ailse: </label>
+    <input [(ngModel)]="ailse" />
+    <label for="shelf">Shelf: </label>
+    <input [(ngModel)]="shelf" />
+    <label for="quantity">Item Quantity: </label>
+    <input [(ngModel)]="quantity" />
+    <button (click)="submitItem()">SUBMIT</button>
+  </div>
+</div>

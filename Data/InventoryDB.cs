@@ -27,7 +27,7 @@ namespace AngularCSharp.Data
         {
             return _context.Inventory.FromSql<Inventory>("SELECT * FROM Inventory;");
         }
-        public Inventory GetItemById(long[] id)
+        public Inventory GetItemById(long id)
         {
             var item = _context.Inventory.Find(id);
             return item;
@@ -51,7 +51,7 @@ namespace AngularCSharp.Data
             entity.State = EntityState.Modified;
             return item;
         }
-        public Inventory DeleteItem(long[] id)
+        public Inventory DeleteItem(long id)
         {
             var item = this.GetItemById(id);
             _context.Remove(item);

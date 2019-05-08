@@ -31,7 +31,7 @@ namespace AngularCSharp.Controllers
             return _inventory.GetItemByName(name);
         }
         [HttpGet("[action]")]
-        public Inventory ById(long[] id)
+        public Inventory ById(long id)
         {
             return _inventory.GetItemById(id);
         }
@@ -42,10 +42,22 @@ namespace AngularCSharp.Controllers
             return _inventory.Commit();
         }
         [HttpPost("[action]")]
-        public int Delete(long[] id)
+        public int Delete(long id)
         {
             _inventory.DeleteItem(id);
             return _inventory.Commit();
+        }
+        [HttpPost("[action]")]
+        public Inventory AddItem(Inventory item)
+        {
+            _inventory.AddItem(item);
+            var confirmed = _inventory.Commit();
+            if(confirmed == 1){
+                return item;
+            }
+            else{
+                return new Inventory();
+            }
         }
     }
 }

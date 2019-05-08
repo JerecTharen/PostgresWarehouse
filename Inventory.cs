@@ -5,7 +5,7 @@ namespace AngularCSharp
 {
     public partial class Inventory
     {
-        public long[] ItemId { get; set; }
+        public long ItemId { get; set; }
         public string Name { get; set; }
         public int Aisle { get; set; }
         public int Shelf { get; set; }
